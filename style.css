@@ -1,0 +1,440 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #252038,
+            #100f18 70%
+        );
+
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow-x: hidden;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 700px;
+
+    padding: 25px;
+}
+
+
+/* =====================================================
+   QUIZ
+   ===================================================== */
+
+#quiz {
+    width: 100%;
+}
+
+
+.topo {
+    margin-bottom: 20px;
+}
+
+
+#contador {
+    display: block;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    opacity: 0.7;
+
+    margin-bottom: 10px;
+}
+
+
+.barra {
+    width: 100%;
+    height: 8px;
+
+    background: #2b2935;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+#progresso {
+    height: 100%;
+
+    width: 5%;
+
+    background: #8b72ff;
+
+    transition: width 0.4s ease;
+}
+
+
+.quiz-card {
+    background: rgba(255,255,255,0.06);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.4);
+
+    backdrop-filter: blur(10px);
+}
+
+
+.categoria {
+    color: #9d8cff;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+}
+
+
+#pergunta {
+    font-size: 27px;
+
+    line-height: 1.3;
+
+    margin: 20px 0 30px;
+}
+
+
+/* =====================================================
+   ALTERNATIVAS
+   ===================================================== */
+
+#alternativas {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.alternativa {
+    width: 100%;
+
+    padding: 17px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.05);
+
+    color: white;
+
+    text-align: left;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s,
+        background 0.2s,
+        border 0.2s;
+}
+
+
+.alternativa:hover {
+    transform: translateX(5px);
+
+    background: rgba(139,114,255,0.2);
+
+    border-color: #8b72ff;
+}
+
+
+/* =====================================================
+   GLITCH
+   ===================================================== */
+
+.glitch {
+    display: inline-block;
+
+    animation:
+        glitch 0.15s linear;
+}
+
+
+.vermelho {
+    color: #ff3131 !important;
+
+    text-shadow:
+        0 0 8px rgba(255,0,0,0.8);
+}
+
+
+@keyframes glitch {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-3px);
+    }
+
+    50% {
+        transform: translateX(3px);
+    }
+
+    75% {
+        transform: translateX(-2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =====================================================
+   RESULTADO
+   ===================================================== */
+
+#resultado {
+    text-align: center;
+}
+
+
+.resultado-card {
+    background: rgba(255,255,255,0.06);
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.5);
+}
+
+
+.resultado-pequeno {
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.6;
+}
+
+
+.resultado-card h1 {
+    font-size: 36px;
+
+    margin: 15px 0 25px;
+}
+
+
+#imagemAgatha {
+    width: 100%;
+
+    max-width: 420px;
+
+    max-height: 450px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    display: block;
+
+    margin: auto;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.5);
+}
+
+
+.descricao {
+    font-size: 17px;
+
+    line-height: 1.5;
+
+    margin-top: 25px;
+}
+
+
+.espera {
+    margin-top: 30px;
+
+    opacity: 0.5;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   ESCONDER
+   ===================================================== */
+
+.escondido {
+    display: none !important;
+}
+
+
+/* =====================================================
+   JUMPSCARE
+   ===================================================== */
+
+#jumpscare {
+    position: fixed;
+
+    inset: 0;
+
+    background: black;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+}
+
+
+#jumpscare.mostrar {
+    display: flex;
+
+    animation:
+        pisca 0.12s linear;
+}
+
+
+#imagemSusto {
+    width: 100vw;
+    height: 100vh;
+
+    object-fit: cover;
+}
+
+
+@keyframes pisca {
+
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+
+/* =====================================================
+   TELA FINAL
+   ===================================================== */
+
+#finalTroll {
+    position: fixed;
+
+    inset: 0;
+
+    background: #111;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10000;
+
+    padding: 20px;
+}
+
+
+#finalTroll.mostrar {
+    display: flex;
+}
+
+
+.troll-card {
+    text-align: center;
+
+    max-width: 700px;
+}
+
+
+.troll-card img {
+    width: 100%;
+
+    max-width: 600px;
+
+    border-radius: 12px;
+
+    display: block;
+
+    margin: auto;
+}
+
+
+.troll-card h1 {
+    font-size: 28px;
+
+    margin-top: 25px;
+}
+
+
+/* =====================================================
+   CELULAR
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 15px;
+    }
+
+
+    .quiz-card {
+        padding: 25px 20px;
+    }
+
+
+    #pergunta {
+        font-size: 23px;
+    }
+
+
+    .resultado-card h1 {
+        font-size: 28px;
+    }
+
+
+    .troll-card h1 {
+        font-size: 22px;
+    }
+
+                         }
